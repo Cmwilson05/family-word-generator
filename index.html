@@ -60,6 +60,269 @@
             color: #666;
             margin-top: 0.5rem;
         }
+        .timer-display {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #007aff;
+            margin-top: 1rem;
+            cursor: pointer;
+            user-select: none;
+            transition: color 0.3s ease;
+        }
+        .timer-display:hover {
+            opacity: 0.8;
+        }
+        .timer-display.paused {
+            opacity: 0.6;
+        }
+        .timer-display.expired {
+            color: #ff3b30;
+            animation: pulse 0.5s ease-in-out 3;
+        }
+        .timer-display.hidden {
+            display: none;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        .timer-controls {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+        }
+        .timer-controls select {
+            flex: 1;
+        }
+        .wake-lock-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #666;
+            cursor: pointer;
+            padding: 0.5rem;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+        .wake-lock-toggle:hover {
+            background-color: #f0f0f0;
+        }
+        .wake-lock-toggle input {
+            cursor: pointer;
+        }
+        .wake-lock-toggle.active {
+            background-color: #e3f2fd;
+            border-color: #90caf9;
+            color: #1976d2;
+        }
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 1.4rem;
+            cursor: pointer;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .dark-mode-toggle:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        .dark-mode .container {
+            background-color: #1e1e1e;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .dark-mode h2 {
+            color: #e0e0e0;
+        }
+        .dark-mode select,
+        .dark-mode input[type="text"] {
+            background-color: #2d2d2d;
+            color: #e0e0e0;
+            border-color: #444;
+        }
+        .dark-mode details {
+            background-color: #2d2d2d;
+            border-color: #444;
+        }
+        .dark-mode summary {
+            color: #e0e0e0;
+        }
+        .dark-mode #result {
+            color: #f0f0f0;
+        }
+        .dark-mode .meta {
+            color: #aaa;
+        }
+        .dark-mode .history-container {
+            border-top-color: #444;
+        }
+        .dark-mode .history-label {
+            color: #aaa;
+        }
+        .dark-mode .history-item {
+            background-color: #2d2d2d;
+            border-color: #444;
+            color: #ccc;
+        }
+        .dark-mode .timer-display {
+            color: #4da6ff;
+        }
+        .dark-mode .timer-display.expired {
+            color: #ff6b6b;
+        }
+        .dark-mode .wake-lock-toggle {
+            background-color: #2d2d2d;
+            border-color: #444;
+            color: #aaa;
+        }
+        .dark-mode .wake-lock-toggle.active {
+            background-color: #1a3a5c;
+            border-color: #4da6ff;
+            color: #4da6ff;
+        }
+        .dark-mode .mute-btn {
+            background-color: #2d2d2d;
+            border-color: #444;
+        }
+        .dark-mode .dark-mode-toggle {
+            background-color: #2d2d2d;
+            border-color: #444;
+        }
+        .dark-mode .dark-mode-toggle:hover {
+            background-color: #3d3d3d;
+        }
+        /* Dark Mode Modal */
+        .dark-mode .modal-content {
+            background-color: #1e1e1e;
+        }
+        .dark-mode .modal-header {
+            border-bottom-color: #444;
+        }
+        .dark-mode .modal-header h2 {
+            color: #e0e0e0;
+        }
+        .dark-mode .close-btn {
+            color: #aaa;
+        }
+        .dark-mode .close-btn:hover {
+            color: #e0e0e0;
+            background-color: #333;
+        }
+        .dark-mode .tabs {
+            background-color: #252525;
+            border-bottom-color: #444;
+        }
+        .dark-mode .tab-btn {
+            color: #aaa;
+        }
+        .dark-mode .tab-btn.active {
+            color: #4da6ff;
+            border-bottom-color: #4da6ff;
+            background-color: #1e1e1e;
+        }
+        .dark-mode .tab-btn:hover {
+            background-color: #2d2d2d;
+        }
+        .dark-mode .library-controls input {
+            background-color: #2d2d2d;
+            color: #e0e0e0;
+            border-color: #444;
+        }
+        .dark-mode .library-stats {
+            background-color: #252525;
+        }
+        .dark-mode .table-container {
+            border-color: #444;
+        }
+        .dark-mode #libraryTable th {
+            background-color: #252525;
+            border-bottom-color: #444;
+            color: #e0e0e0;
+        }
+        .dark-mode #libraryTable th:hover {
+            background-color: #2d2d2d;
+        }
+        .dark-mode #libraryTable td {
+            border-bottom-color: #333;
+            color: #ccc;
+        }
+        .dark-mode #libraryTable tbody tr:hover {
+            background-color: #252525;
+        }
+        .dark-mode tr.hidden-word {
+            background-color: #2a1f1f;
+        }
+        .dark-mode .stat-section {
+            background-color: #252525;
+        }
+        .dark-mode .stat-section h3 {
+            color: #e0e0e0;
+        }
+        .dark-mode .stat-item {
+            border-bottom-color: #444;
+        }
+        .dark-mode .stat-label {
+            color: #aaa;
+        }
+        .dark-mode .stat-bar {
+            background-color: #333;
+        }
+        /* Dark mode difficulty colors (brighter for contrast) */
+        .dark-mode .diff-easy { color: #4caf50; }
+        .dark-mode .diff-medium { color: #ffb74d; }
+        .dark-mode .diff-hard { color: #ef5350; }
+        .dark-mode .diff-kids { color: #4fc3f7; }
+        .dark-mode .diff-adults { color: #ba68c8; }
+
+        .mute-btn {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .mute-btn:hover {
+            background-color: #f0f0f0;
+        }
+        .mute-btn.muted {
+            opacity: 0.6;
+        }
+        /* Difficulty color coding */
+        .diff-easy { color: #2e7d32; }
+        .diff-medium { color: #f57c00; }
+        .diff-hard { color: #c62828; }
+        .diff-kids { color: #0288d1; }
+        .diff-adults { color: #7b1fa2; }
+        /* Pop animation */
+        @keyframes popIn {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            50% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .pop-anim {
+            animation: popIn 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
         .history-container {
             margin-top: 1.5rem;
             padding-top: 1rem;
@@ -85,11 +348,6 @@
             font-size: 0.9rem;
             color: #666;
             border: 1px solid #e0e0e0;
-        }
-        .history-item:first-child {
-            background-color: #e3f2fd;
-            color: #1976d2;
-            border-color: #90caf9;
         }
         details {
             border: 1px solid #ccc;
@@ -389,16 +647,17 @@
     </style>
 </head>
 <body>
+<button id="darkModeToggle" class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle dark mode">🌙</button>
 <div class="container">
     <h2>Random Word Generator</h2>
     <div class="controls">
-        <select id="wordListSelect" onchange="loadWordList()">
+        <select id="wordListSelect" onchange="loadWordList(); saveState();">
             <option value="">Select Word List...</option>
         </select>
-        <select id="topicSelect" onchange="u()">
+        <select id="topicSelect" onchange="u(); saveState();">
             <option value="">Any Topic</option>
         </select>
-        <select id="difficultySelect">
+        <select id="difficultySelect" onchange="saveState();">
             <option value="">Any Difficulty</option>
         </select>
 
@@ -410,12 +669,30 @@
 
         <button onclick="g()">Generate Word <span style="opacity: 0.7; font-size: 0.85rem;">(or press Space)</span></button>
         <button onclick="openLibrary()" style="background-color: #5856d6;">📚 View Library</button>
+
+        <div class="timer-controls">
+            <select id="timerSelect" onchange="saveState();">
+                <option value="0" selected>No Timer</option>
+                <option value="30">30 seconds</option>
+                <option value="60">60 seconds</option>
+                <option value="90">90 seconds</option>
+                <option value="120">2 minutes</option>
+            </select>
+        </div>
+
+        <label class="wake-lock-toggle" id="wakeLockToggle">
+            <input type="checkbox" id="wakeLockCheckbox" onchange="toggleWakeLock()">
+            Keep Screen Awake
+        </label>
+
+        <button id="muteToggle" onclick="toggleMute()" class="mute-btn" title="Toggle sound effects">🔊</button>
     </div>
     <div id="result"></div>
     <div id="meta" class="meta"></div>
+    <div id="timer" class="timer-display hidden" onclick="toggleTimerPause()" title="Click to pause/resume"></div>
 
     <div id="history" class="history-container">
-        <div class="history-label">Recent Words:</div>
+        <div class="history-label">Previous Words:</div>
         <div id="historyList" class="history-list"></div>
     </div>
 </div>
@@ -576,11 +853,19 @@
             select.appendChild(option);
         });
 
-        // Auto-load first word list if available
-        if (WORD_LISTS.length > 0) {
+        // Check for saved state
+        const savedState = loadState();
+
+        // Use saved word list or default to first
+        if (savedState && savedState.selectedList) {
+            select.value = savedState.selectedList;
+        } else if (WORD_LISTS.length > 0) {
             select.value = WORD_LISTS[0].file;
-            loadWordList();
         }
+
+        // Store state reference for after word list loads
+        window._pendingState = savedState;
+        loadWordList();
     }
 
     function resetUI() {
@@ -597,6 +882,12 @@
     function initializeApp() {
         l();
         updateHistoryDisplay();
+
+        // Apply any pending saved state after word list is loaded
+        if (window._pendingState) {
+            applyState(window._pendingState);
+            window._pendingState = null;
+        }
     }
 
     function l() {
@@ -625,7 +916,7 @@
             checkbox.type = 'checkbox';
             checkbox.value = topic;
             checkbox.className = 'exclusion-checkbox';
-            checkbox.onchange = u; // Update difficulties when exclusions change
+            checkbox.onchange = function() { u(); saveState(); }; // Update difficulties when exclusions change
 
             label.appendChild(checkbox);
             label.appendChild(document.createTextNode(' ' + topic));
@@ -725,11 +1016,27 @@
         }
 
         c = randomEntry.word;
-        document.getElementById('result').textContent = randomEntry.word;
+        const resultEl = document.getElementById('result');
+
+        // Apply pop animation and sound
+        resultEl.classList.remove('pop-anim');
+        void resultEl.offsetWidth; // Force reflow
+        resultEl.classList.add('pop-anim');
+        playGenerateSound();
+
+        // Apply difficulty color coding
+        resultEl.classList.remove('diff-easy', 'diff-medium', 'diff-hard', 'diff-kids', 'diff-adults');
+        const diffClass = 'diff-' + randomEntry.difficulty.toLowerCase();
+        resultEl.classList.add(diffClass);
+
+        resultEl.textContent = randomEntry.word;
         document.getElementById('meta').textContent = `${randomEntry.topic} • ${randomEntry.difficulty}`;
 
         // Add to history
         addToHistory(randomEntry);
+
+        // Start timer if enabled
+        startTimer();
     }
 
     function shuffleArray(array) {
@@ -747,9 +1054,9 @@
             difficulty: entry.difficulty
         });
 
-        // Keep only last 2
-        if (history.length > 2) {
-            history = history.slice(0, 2);
+        // Keep only last 4 (current + 3 previous)
+        if (history.length > 4) {
+            history = history.slice(0, 4);
         }
 
         // Update history display
@@ -759,13 +1066,15 @@
     function updateHistoryDisplay() {
         const historyList = document.getElementById('historyList');
 
-        if (history.length === 0) {
-            historyList.innerHTML = '<span style="color: #999; font-size: 0.85rem;">No words generated yet</span>';
+        // Skip first item (current word), show previous 3
+        const previousWords = history.slice(1, 4);
+
+        if (previousWords.length === 0) {
+            historyList.innerHTML = '<span style="color: #999; font-size: 0.85rem;">No previous words yet</span>';
             return;
         }
 
-        historyList.innerHTML = history.map((item, index) => {
-            const label = index === 0 ? 'Latest' : `${index + 1}`;
+        historyList.innerHTML = previousWords.map((item) => {
             return `<div class="history-item" title="${item.topic} • ${item.difficulty}">${item.word}</div>`;
         }).join('');
     }
@@ -1058,8 +1367,289 @@
         difficultyStatsDiv.appendChild(totalItem);
     }
 
+    // =====================================
+    // Screen Wake Lock
+    // =====================================
+    let wakeLock = null;
+
+    async function toggleWakeLock() {
+        const checkbox = document.getElementById('wakeLockCheckbox');
+        const toggle = document.getElementById('wakeLockToggle');
+
+        if (checkbox.checked) {
+            await requestWakeLock();
+        } else {
+            await releaseWakeLock();
+        }
+
+        // Update visual state
+        toggle.classList.toggle('active', checkbox.checked && wakeLock !== null);
+    }
+
+    async function requestWakeLock() {
+        try {
+            if ('wakeLock' in navigator) {
+                wakeLock = await navigator.wakeLock.request('screen');
+                wakeLock.addEventListener('release', () => {
+                    console.log('Wake Lock released');
+                    wakeLock = null;
+                    updateWakeLockUI(false);
+                });
+                console.log('Wake Lock acquired');
+            } else {
+                console.log('Wake Lock API not supported');
+            }
+        } catch (err) {
+            console.log('Wake Lock error:', err.message);
+            updateWakeLockUI(false);
+        }
+    }
+
+    async function releaseWakeLock() {
+        if (wakeLock !== null) {
+            try {
+                await wakeLock.release();
+                wakeLock = null;
+                console.log('Wake Lock released manually');
+            } catch (err) {
+                console.log('Wake Lock release error:', err.message);
+            }
+        }
+    }
+
+    function updateWakeLockUI(active) {
+        const checkbox = document.getElementById('wakeLockCheckbox');
+        const toggle = document.getElementById('wakeLockToggle');
+        checkbox.checked = active;
+        toggle.classList.toggle('active', active);
+    }
+
+    // Re-acquire wake lock when page becomes visible again
+    document.addEventListener('visibilitychange', async () => {
+        const checkbox = document.getElementById('wakeLockCheckbox');
+        if (document.visibilityState === 'visible' && checkbox.checked && wakeLock === null) {
+            await requestWakeLock();
+        }
+    });
+
+    // =====================================
+    // Round Timer
+    // =====================================
+    let timerInterval = null;
+    let timerValue = 0;
+    let timerPaused = false;
+    let timerDuration = 0;
+
+    function startTimer() {
+        const timerSelect = document.getElementById('timerSelect');
+        const timerDisplay = document.getElementById('timer');
+        timerDuration = parseInt(timerSelect.value, 10);
+
+        // Clear any existing interval
+        if (timerInterval) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+
+        // Hide timer if no timer selected
+        if (timerDuration === 0) {
+            timerDisplay.classList.add('hidden');
+            return;
+        }
+
+        // Reset timer state
+        timerValue = timerDuration;
+        timerPaused = false;
+        timerDisplay.classList.remove('hidden', 'paused', 'expired');
+        timerDisplay.textContent = formatTime(timerValue);
+
+        // Start countdown
+        timerInterval = setInterval(() => {
+            if (!timerPaused) {
+                timerValue--;
+                timerDisplay.textContent = formatTime(timerValue);
+
+                if (timerValue <= 0) {
+                    clearInterval(timerInterval);
+                    timerInterval = null;
+                    timerDisplay.classList.add('expired');
+                    playTimerSound();
+                }
+            }
+        }, 1000);
+    }
+
+    function formatTime(seconds) {
+        if (seconds >= 60) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+        return seconds.toString();
+    }
+
+    function toggleTimerPause() {
+        const timerDisplay = document.getElementById('timer');
+
+        // Don't allow pause/resume if timer expired or not running
+        if (timerValue <= 0 || timerInterval === null) {
+            return;
+        }
+
+        timerPaused = !timerPaused;
+        timerDisplay.classList.toggle('paused', timerPaused);
+    }
+
+    // =====================================
+    // Audio Feedback
+    // =====================================
+    let audioMuted = false;
+    let audioContext = null;
+
+    function getAudioContext() {
+        if (!audioContext) {
+            audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        return audioContext;
+    }
+
+    function playTone(freq, type, duration, freqEnd = null) {
+        if (audioMuted) return;
+
+        try {
+            const ctx = getAudioContext();
+            const oscillator = ctx.createOscillator();
+            const gainNode = ctx.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(ctx.destination);
+
+            oscillator.type = type;
+            oscillator.frequency.setValueAtTime(freq, ctx.currentTime);
+
+            // Slide to end frequency if provided
+            if (freqEnd !== null) {
+                oscillator.frequency.exponentialRampToValueAtTime(freqEnd, ctx.currentTime + duration);
+            }
+
+            gainNode.gain.setValueAtTime(0.3, ctx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + duration);
+
+            oscillator.start(ctx.currentTime);
+            oscillator.stop(ctx.currentTime + duration);
+        } catch (err) {
+            console.log('Audio not supported:', err.message);
+        }
+    }
+
+    function playGenerateSound() {
+        // Short high-pitched "pop" - sine wave sliding from 600Hz to 800Hz
+        playTone(600, 'sine', 0.1, 800);
+    }
+
+    function playTimerSound() {
+        // Buzzer sound - square wave at 150Hz for 0.5s
+        playTone(150, 'square', 0.5);
+    }
+
+    function toggleMute() {
+        audioMuted = !audioMuted;
+        const btn = document.getElementById('muteToggle');
+        btn.textContent = audioMuted ? '🔇' : '🔊';
+        btn.classList.toggle('muted', audioMuted);
+        saveState();
+    }
+
+    // =====================================
+    // Persistent Preferences
+    // =====================================
+    function saveState() {
+        const state = {
+            selectedList: document.getElementById('wordListSelect').value,
+            selectedTopic: document.getElementById('topicSelect').value,
+            selectedDifficulty: document.getElementById('difficultySelect').value,
+            excludedTopics: Array.from(document.querySelectorAll('.exclusion-checkbox:checked')).map(cb => cb.value),
+            timerDuration: document.getElementById('timerSelect').value,
+            audioMuted: audioMuted
+        };
+        localStorage.setItem('wordGenPrefs', JSON.stringify(state));
+    }
+
+    function loadState() {
+        const saved = localStorage.getItem('wordGenPrefs');
+        if (!saved) return null;
+
+        try {
+            return JSON.parse(saved);
+        } catch (e) {
+            console.log('Error parsing saved state:', e);
+            return null;
+        }
+    }
+
+    function applyState(state) {
+        if (!state) return;
+
+        // Apply topic selection
+        if (state.selectedTopic) {
+            document.getElementById('topicSelect').value = state.selectedTopic;
+        }
+
+        // Apply difficulty selection
+        if (state.selectedDifficulty) {
+            document.getElementById('difficultySelect').value = state.selectedDifficulty;
+        }
+
+        // Apply excluded topics
+        if (state.excludedTopics && state.excludedTopics.length > 0) {
+            state.excludedTopics.forEach(topic => {
+                const checkbox = document.querySelector(`.exclusion-checkbox[value="${topic}"]`);
+                if (checkbox) checkbox.checked = true;
+            });
+        }
+
+        // Apply timer duration
+        if (state.timerDuration !== undefined) {
+            document.getElementById('timerSelect').value = state.timerDuration;
+        }
+
+        // Apply audio muted state
+        if (state.audioMuted) {
+            audioMuted = true;
+            const btn = document.getElementById('muteToggle');
+            btn.textContent = '🔇';
+            btn.classList.add('muted');
+        }
+
+        // Update the UI
+        u();
+    }
+
+    // =====================================
+    // Dark Mode
+    // =====================================
+    function toggleDarkMode() {
+        const isDark = document.body.classList.toggle('dark-mode');
+        const btn = document.getElementById('darkModeToggle');
+        btn.textContent = isDark ? '☀️' : '🌙';
+
+        // Save preference to localStorage
+        localStorage.setItem('darkMode', isDark ? 'true' : 'false');
+    }
+
+    function initDarkMode() {
+        const savedPref = localStorage.getItem('darkMode');
+        const btn = document.getElementById('darkModeToggle');
+
+        if (savedPref === 'true') {
+            document.body.classList.add('dark-mode');
+            btn.textContent = '☀️';
+        }
+    }
+
     // Initialize on page load
     window.addEventListener('DOMContentLoaded', function() {
+        initDarkMode();
         initWordListPicker();
     });
 </script>
